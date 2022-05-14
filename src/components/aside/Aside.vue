@@ -42,6 +42,11 @@
     <i class="el-icon-brush"></i>
     <span slot="title">主题</span>
   </el-menu-item>
+  <!-- 个人中心 -->
+  <el-menu-item index="/home/personal">
+    <i class="el-icon-user"></i>
+    <span slot="title">个人中心</span>
+  </el-menu-item>
 </el-menu>
   </div>
 </template>

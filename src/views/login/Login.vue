@@ -28,6 +28,12 @@
 
 export default {
   name: 'myLogin',
+  created () {
+    // 清除token
+    sessionStorage.removeItem('Token')
+    sessionStorage.removeItem('userHead')
+    this.$store.commit('removetoken')
+  },
   data () {
     return {
       userinfo: {

@@ -19,7 +19,7 @@
     <Breadcrumb></Breadcrumb>
     </div>
     <!-- 右侧头像 -->
-    <el-dropdown class="others">
+    <el-dropdown class="others" @command="handleCommand">
   <span class="el-dropdown-link">
      <el-avatar shape="square" :size="40" :src="userPng" @error="errorHandler">
      <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" v-if="errorHandler"/>
@@ -27,9 +27,9 @@
   <i class="el-icon-arrow-down el-icon--right"></i>
   </span>
   <el-dropdown-menu slot="dropdown">
-    <el-dropdown-item>个人中心</el-dropdown-item>
-    <el-dropdown-item>首页</el-dropdown-item>
-    <el-dropdown-item divided>退出登录</el-dropdown-item>
+    <el-dropdown-item command="/home/personal">个人中心</el-dropdown-item>
+    <el-dropdown-item command="/home">首页</el-dropdown-item>
+    <el-dropdown-item command="/login" divided>退出登录</el-dropdown-item>
   </el-dropdown-menu>
 </el-dropdown>
     </div>
@@ -38,7 +38,7 @@
 <Tabs></Tabs>
 </div>
   </el-header>
-  <el-main>
+  <el-main class="main-container">
     <router-view></router-view>
   </el-main>
 </el-container>
@@ -77,6 +77,10 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    handleCommand (item) {
+      // console.log(item)
+      this.$router.push(item)
     }
   },
   components: {
@@ -146,5 +150,9 @@ background-color:#F0F2F5;
 .el-avatar--square {
     border-radius: 5px;
     margin-top: 5px;
+}
+/* 主体内容区域 */
+.main-container {
+  padding: 20px;
 }
 </style>

@@ -15,6 +15,9 @@ export default new Vuex.Store({
   mutations: {
     setToken (state, newdata) {
       state.token = newdata
+    },
+    removetoken (state) {
+      state.token = ''
     }
   },
   actions: {
@@ -24,7 +27,7 @@ export default new Vuex.Store({
         // 请求成功
         loginAPI(username, password).then(result => {
           const res = result.data
-          console.log(res)
+          // console.log(res)
           if (res.code === 200) {
             // 将token存储在本地防止刷新界面消失
             sessionStorage.setItem('Token', res.data.token)

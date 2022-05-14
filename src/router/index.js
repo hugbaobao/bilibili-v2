@@ -10,6 +10,8 @@ import Order from '@/views/order/Order.vue'
 import Power from '@/views/power/Power.vue'
 import Theme from '@/views/theme/Theme.vue'
 
+import Personal from '@/views/home/personal/Personal.vue'
+
 Vue.use(VueRouter)
 
 // 避免相同地址互相跳转时报错
@@ -50,6 +52,10 @@ const routes = [
         path: 'theme',
         component: Theme,
         meta: { tagName: '主题', title: '主题', fullPath: '/home/theme' }
+      }, {
+        path: 'personal',
+        component: Personal,
+        meta: { tagName: '个人中心', title: '个人中心', fullPath: '/home/personal' }
       }]
   }
 ]
