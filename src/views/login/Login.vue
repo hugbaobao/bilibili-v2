@@ -47,7 +47,7 @@ export default {
           // 调用action的登录方法发起登录的异步请求
           this.$store.dispatch('login', this.userinfo).then(() => {
             // 转到首页
-            this.$router.push('/')
+            this.$router.push('/home')
             // console.log(this.$store.state.token)
           }).catch(err => {
             console.log(err)
