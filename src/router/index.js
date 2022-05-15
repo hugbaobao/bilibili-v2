@@ -64,4 +64,19 @@ const router = new VueRouter({
   routes
 })
 
+// 导航守卫
+router.beforeEach((to, from, next) => {
+  if (to.path !== '/login') {
+    const token = sessionStorage.getItem('Token')
+    if (token) {
+      next()
+    } else {
+      alert('请登录')
+      next('/login')
+    }
+  } else {
+    next()
+  }
+})
+
 export default router

@@ -3,7 +3,7 @@
 
   <el-row :gutter="40">
 
-    <el-col :span="6" :offset="6"><div class="grid-content bg-purple" @mouseenter="flag = !flag" @mouseleave="flag = !flag">
+    <el-col :span="6" :offset="6"><div class="grid-content bg-purple" @mouseenter="checkcolor($event)" @mouseleave="removecolor($event)">
 <div class="myicon" ref="theicon">
   <i class="iconfont icon-wode-m"></i>
 </div>
@@ -13,7 +13,7 @@
 </div>
   </div></el-col>
 
-  <el-col :span="6"><div class="grid-content bg-purple">
+  <el-col :span="6"><div class="grid-content bg-purple" @mouseenter="checkcolor($event)" @mouseleave="removecolor($event)">
 <div class="myicon" ref="theiconq">
   <i class="iconfont icon-a-dingdanzhangdan-m"></i>
 </div>
@@ -41,24 +41,17 @@ export default {
   data () {
     return {
       customnum: '1',
-      ordernum: '2',
-      flag: true
+      ordernum: '2'
     }
   },
-  /*  methods: {
-    logg () {
-      console.log(this)
-    }
-  }, */
-  watch: {
-    flag () {
-      if (!this.flag) {
-        this.$refs.theicon.style.color = '#fff'
-        this.$refs.theicon.style.backgroundColor = 'skyblue'
-      } else {
-        this.$refs.theicon.style.color = 'skyblue'
-        this.$refs.theicon.style.backgroundColor = '#fff'
-      }
+  methods: {
+    checkcolor (e) {
+      e.target.children[0].style.color = '#fff'
+      e.target.children[0].style.backgroundColor = 'skyblue'
+    },
+    removecolor (e) {
+      e.target.children[0].style.color = 'skyblue'
+      e.target.children[0].style.backgroundColor = '#fff'
     }
   }
 }
