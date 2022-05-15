@@ -39,7 +39,8 @@ export default {
     handleTabsEdit (targetName, action) {
       if (action === 'remove') {
         const tabs = this.editableTabs
-        this.editableTabs = tabs.filter(tab => tab.tagName !== targetName)
+        this.editableTabs = tabs.filter(tab => tab.fullPath !== targetName)
+        // console.log(this.editableTabs)
       }
     },
     getTabs () {
