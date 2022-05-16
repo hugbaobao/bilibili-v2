@@ -6,11 +6,11 @@
   <h6>User login</h6>
 
   <el-form-item prop="username">
-    <el-input placeholder="请输入用户名" v-model="userinfo.username"></el-input>
+    <el-input placeholder="请输入用户名" v-model.trim="userinfo.username"></el-input>
   </el-form-item>
 
   <el-form-item prop="password">
-    <el-input type="password" placeholder="请输入密码" v-model="userinfo.password"></el-input>
+    <el-input type="password" placeholder="请输入密码" v-model.trim="userinfo.password"></el-input>
   </el-form-item>
 
   <el-form-item>

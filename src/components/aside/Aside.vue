@@ -1,6 +1,6 @@
 <template>
   <div id="Aside">
-<el-menu class="el-menu-vertical-demo" text-color="#797E82" active-text-color="#68B2A0" @open="handleOpen" @close="handleClose" :collapse="Collapse" :default-active="sidebaiValue" :router="true">
+<el-menu class="el-menu-vertical-demo" :style="{'background-color':reqcolor}" text-color="#797E82" active-text-color="#68B2A0" @open="handleOpen" @close="handleClose" :collapse="Collapse" :default-active="sidebaiValue" :router="true">
  <!-- 首页 -->
   <el-menu-item index="/home/home">
     <i class="el-icon-menu"></i>
@@ -52,14 +52,21 @@
 </template>
 
 <script>
+import eventBus from '@/uticls/eventBus.js'
 export default {
   name: 'myAside',
   data () {
     return {
       isCollapse: false,
       Collapse: false,
-      sidebaiValue: ''
+      sidebaiValue: '',
+      reqcolor: '#CDE0C9'
     }
+  },
+  created () {
+    eventBus.$on('color', val => {
+      this.reqcolor = val
+    })
   },
   props: ['CollapseIs'],
   watch: {

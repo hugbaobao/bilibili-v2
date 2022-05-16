@@ -24,6 +24,12 @@
   </div></el-col>
 </el-row>
 
+<el-row>
+  <el-col :span="24"><div class="grid-content bg-purple">
+    <el-empty description=""></el-empty>
+  </div></el-col>
+</el-row>
+
   </div>
 </template>
 
@@ -108,5 +114,9 @@ export default {
   }
   .icon-r span:nth-child(1) {
     margin-bottom: 5px;
+  }
+  /* 空状态 */
+  .el-empty {
+    margin: 0 auto;
   }
 </style>

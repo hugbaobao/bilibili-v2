@@ -1,8 +1,8 @@
 <template>
 <div id="Home">
 
-<div class="left">
-<Aside :CollapseIs="isCollapse"></Aside>
+<div class="left" :style="{'background-color':newcolor}">
+<Aside :CollapseIs="isCollapse" @color2="changeC"></Aside>
 </div>
 
 <div class="container">
@@ -55,16 +55,23 @@ import Breadcrumb from '@/components/breadcrumb/Breadcrumb.vue'
 // Header下半部分
 import Tabs from '@/components/tabs/Tabs.vue'
 
+import eventBus from '@/uticls/eventBus.js'
+
 export default {
   name: 'myHome',
   created () {
     const pic = sessionStorage.getItem('userHead')
     this.userPng = pic
+
+    eventBus.$on('color', val => {
+      this.newcolor = val
+    })
   },
   data () {
     return {
       isCollapse: false,
-      userPng: ''
+      userPng: '',
+      newcolor: '#CDE0C9'
     }
   },
   methods: {
@@ -81,6 +88,10 @@ export default {
     handleCommand (item) {
       // console.log(item)
       this.$router.push(item)
+    },
+    changeC (val) {
+      this.newcolor = val
+      console.log(this.newcolor)
     }
   },
   components: {
@@ -153,6 +164,6 @@ background-color:#F0F2F5;
 }
 /* 主体内容区域 */
 .main-container {
-  padding: 20px;
+  padding: 40px;
 }
 </style>
