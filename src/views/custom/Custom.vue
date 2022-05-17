@@ -1,6 +1,6 @@
 <template>
   <div id="Custom">
-<h1>Custom组件</h1>
+<router-view></router-view>
   </div>
 </template>
 

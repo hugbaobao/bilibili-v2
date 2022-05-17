@@ -1,6 +1,14 @@
 <template>
   <div id="Aside">
-<el-menu class="el-menu-vertical-demo" :style="{'background-color':reqcolor}" text-color="#797E82" active-text-color="#68B2A0" @open="handleOpen" @close="handleClose" :collapse="Collapse" :default-active="sidebaiValue" :router="true">
+<el-menu class="el-menu-vertical-demo"
+:style="{'background-color':reqcolor}"
+text-color="#797E82"
+active-text-color="#68B2A0"
+@open="handleOpen"
+@close="handleClose"
+:collapse="Collapse"
+:default-active="sidebaiValue"
+:router="true">
  <!-- 首页 -->
   <el-menu-item index="/home/home">
     <i class="el-icon-menu"></i>
@@ -14,9 +22,9 @@
     </template>
     <el-menu-item-group>
       <span slot="title">我的客户</span>
-      <el-menu-item index="/home/custom">客户列表</el-menu-item>
-      <el-menu-item index="/home/custom">添加客户</el-menu-item>
-      <el-menu-item index="/home/custom">客户管理</el-menu-item>
+      <el-menu-item index="/home/custom/customlist">客户列表</el-menu-item>
+      <el-menu-item index="/home/custom/addcustom">添加客户</el-menu-item>
+      <el-menu-item index="/home/custom/admincustom">客户管理</el-menu-item>
     </el-menu-item-group>
   </el-submenu>
   <!-- 订单 -->
@@ -27,9 +35,9 @@
     </template>
     <el-menu-item-group>
       <span slot="title">我的订单</span>
-      <el-menu-item index="/home/order">订单列表</el-menu-item>
-      <el-menu-item index="/home/order">添加订单</el-menu-item>
-      <el-menu-item index="/home/order">退款处理</el-menu-item>
+      <el-menu-item index="/home/order/orderlist">订单列表</el-menu-item>
+      <el-menu-item index="/home/order/addorder">添加订单</el-menu-item>
+      <el-menu-item index="/home/order/adminorder">退款处理</el-menu-item>
     </el-menu-item-group>
   </el-submenu>
   <!-- 设置 -->
@@ -67,6 +75,7 @@ export default {
     eventBus.$on('color', val => {
       this.reqcolor = val
     })
+    this.sidebaiValue = this.$router.currentRoute.fullPath
   },
   props: ['CollapseIs'],
   watch: {

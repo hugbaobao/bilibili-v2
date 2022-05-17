@@ -12,6 +12,16 @@ import Theme from '@/views/theme/Theme.vue'
 
 import Personal from '@/views/home/personal/Personal.vue'
 
+// 客户
+import Customlist from '@/views/custom/CustomList.vue'
+import AddCustom from '@/views/custom/addCustom.vue'
+import AdminCustom from '@/views/custom/adminCustom.vue'
+
+// 订单
+import OrderList from '@/views/order/OrderList.vue'
+import AddOrder from '@/views/order/AddOder.vue'
+import AdminOrder from '@/views/order/AdminOrder.vue'
+
 Vue.use(VueRouter)
 
 // 避免相同地址互相跳转时报错
@@ -36,12 +46,48 @@ const routes = [
       {
         path: 'custom',
         component: Custom,
-        meta: { tagName: '客户', title: '客户', fullPath: '/home/custom' }
+        meta: { tagName: '客户', title: '客户', fullPath: '/home/custom' },
+        children: [
+          { path: '', redirect: '/home/custom/customlist' },
+          {
+            path: 'customlist',
+            component: Customlist,
+            meta: { tagName: '客户列表', title: '客户列表', fullPath: '/home/custom/customlist' }
+          },
+          {
+            path: 'addcustom',
+            component: AddCustom,
+            meta: { tagName: '客户列表', title: '客户列表', fullPath: '/home/custom/addcustom' }
+          },
+          {
+            path: 'admincustom',
+            component: AdminCustom,
+            meta: { tagName: '客户管理', title: '客户管理', fullPath: '/home/custom/admincustom' }
+          }
+        ]
       },
       {
         path: 'order',
         component: Order,
-        meta: { tagName: '订单', title: '订单', fullPath: '/home/order' }
+        meta: { tagName: '订单', title: '订单', fullPath: '/home/order' },
+        children: [
+          { path: '', redirect: '/home/order/orderlist' },
+          {
+            path: 'orderlist',
+            component: OrderList,
+            meta: { tagName: '订单列表', title: '订单列表', fullPath: '/home/order/orderlist' }
+          },
+          {
+            path: 'addorder',
+            component: AddOrder,
+            meta: { tagName: '添加订单', title: '添加订单', fullPath: '/home/order/addorder' }
+          },
+          {
+            path: 'adminorder',
+            component: AdminOrder,
+            meta: { tagName: '退款处理', title: '退款处理', fullPath: '/home/order/adminorder' }
+          }
+        ]
       },
       {
         path: 'power',

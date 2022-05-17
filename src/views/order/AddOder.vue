@@ -1,12 +1,12 @@
 <template>
-  <div id="Power">
-<el-empty description="权限"></el-empty>
+  <div id="Addorder">
+<el-empty description="添加订单"></el-empty>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'myPower'
+  name: 'myAddoder'
 }
 </script>
 

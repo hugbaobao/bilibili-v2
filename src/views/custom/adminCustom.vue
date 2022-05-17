@@ -1,6 +1,6 @@
 <template>
   <div id="AdminCustom">
-<h1>AdminmyCustom组件</h1>
+<el-empty description="客户管理"></el-empty>
   </div>
 </template>
 

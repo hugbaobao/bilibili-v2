@@ -6,29 +6,45 @@ export default [
       return {
         code: 200,
         data: [{
-          姓名: '赵',
-          手机: '177xxxxx'
+          id: '001',
+          name: '赵',
+          phone: '177xxxxx',
+          status: true
         }, {
-          姓名: '钱',
-          手机: '177xxxxx'
+          id: '002',
+          name: '钱',
+          phone: '177xxxxx',
+          status: true
         }, {
-          姓名: '孙',
-          手机: '177xxxxx'
+          id: '003',
+          name: '孙',
+          phone: '177xxxxx',
+          status: false
         }, {
-          姓名: '李',
-          手机: '177xxxxx'
+          id: '004',
+          name: '李',
+          phone: '177xxxxx',
+          status: true
         }, {
-          姓名: '周',
-          手机: '177xxxxx'
+          id: '005',
+          name: '周',
+          phone: '177xxxxx',
+          status: false
         }, {
-          姓名: '吴',
-          手机: '177xxxxx'
+          id: '006',
+          name: '吴',
+          phone: '177xxxxx',
+          status: true
         }, {
-          姓名: '郑',
-          手机: '177xxxxx'
+          id: '007',
+          name: '郑',
+          phone: '177xxxxx',
+          status: true
         }, {
-          姓名: '王',
-          手机: '177xxxxx'
+          id: '008',
+          name: '王',
+          phone: '177xxxxx',
+          status: true
         }]
       }
     }

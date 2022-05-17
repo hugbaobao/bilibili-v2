@@ -1,6 +1,6 @@
 <template>
   <div id="Order">
-<h1>Order组件</h1>
+<router-view></router-view>
   </div>
 </template>
 

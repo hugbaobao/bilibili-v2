@@ -8,7 +8,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    token: ''
+    token: '',
+    customs: []
   },
   getters: {
   },
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     removetoken (state) {
       state.token = ''
+    },
+    savecustom (state, list) {
+      state.customs = list
     }
   },
   actions: {
