@@ -9,7 +9,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     token: '',
-    customs: []
+    customs: [],
+    orders: []
   },
   getters: {
   },
@@ -22,6 +23,9 @@ export default new Vuex.Store({
     },
     savecustom (state, list) {
       state.customs = list
+    },
+    saveorders (state, list) {
+      state.orders = list
     }
   },
   actions: {
