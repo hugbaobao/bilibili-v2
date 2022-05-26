@@ -3,8 +3,9 @@
 
   <el-row :gutter="40">
 
-    <el-col :span="6" :offset="6"><div class="grid-content bg-purple" @mouseenter="checkcolor($event)" @mouseleave="removecolor($event)">
-<div class="myicon" ref="theicon">
+<router-link to="/home/custom/customlist">
+<el-col :span="6" ><div class="grid-content bg-purple" @mouseenter="checkcolor($event)" @mouseleave="removecolor($event)">
+<div class="myicon">
   <i class="iconfont icon-wode-m"></i>
 </div>
 <div class="icon-r">
@@ -12,9 +13,11 @@
   <span>{{ customnum }}</span>
 </div>
   </div></el-col>
+</router-link>
 
-  <el-col :span="6"><div class="grid-content bg-purple" @mouseenter="checkcolor($event)" @mouseleave="removecolor($event)">
-<div class="myicon" ref="theiconq">
+<router-link to="/home/order/orderlist">
+<el-col :span="6"><div class="grid-content bg-purple" @mouseenter="checkcolor($event)" @mouseleave="removecolor($event)">
+<div class="myicon">
   <i class="iconfont icon-a-dingdanzhangdan-m"></i>
 </div>
 <div class="icon-r">
@@ -22,8 +25,35 @@
   <span>{{ ordernum }}</span>
 </div>
   </div></el-col>
+</router-link>
+
+<router-link to="/home/order/orderlist">
+<el-col :span="6"><div class="grid-content bg-purple" @mouseenter="checkcolor($event)" @mouseleave="removecolor($event)">
+<div class="myicon">
+  <i class="iconfont icon-shuju2-m"></i>
+</div>
+<div class="icon-r">
+  <span style="color:#999">订单收入</span>
+  <span>{{ income }}</span>
+</div>
+  </div></el-col>
+</router-link>
+
+<router-link to="/home/order/orderlist">
+<el-col :span="6"><div class="grid-content bg-purple" @mouseenter="checkcolor($event)" @mouseleave="removecolor($event)">
+<div class="myicon">
+  <i class="iconfont icon-biaoqian-m"></i>
+</div>
+<div class="icon-r">
+  <span style="color:#999">工作待办</span>
+  <span>{{ todo }}</span>
+</div>
+  </div></el-col>
+</router-link>
+
 </el-row>
 
+<!-- 空状态 -->
 <el-row>
   <el-col :span="24"><div class="grid-content bg-purple">
     <el-empty description=""></el-empty>
@@ -43,11 +73,14 @@ export default {
     this.customnum = res.data.length
     const { data: ress } = await orderAPI()
     this.ordernum = ress.data.length
+    this.orderlist = ress.data
   },
   data () {
     return {
       customnum: '1',
-      ordernum: '2'
+      ordernum: '2',
+      todo: 5,
+      orderlist: []
     }
   },
   methods: {
@@ -58,6 +91,18 @@ export default {
     removecolor (e) {
       e.target.children[0].style.color = 'skyblue'
       e.target.children[0].style.backgroundColor = '#fff'
+    }
+  },
+  computed: {
+    income () {
+      /* let num = 0
+      this.orderlist.forEach(item => {
+        num += Number(item.money)
+      }) */
+      const num = this.orderlist.reduce((number, item) => {
+        return number + Number(item.money)
+      }, 0)
+      return num
     }
   }
 }
@@ -118,5 +163,8 @@ export default {
   /* 空状态 */
   .el-empty {
     margin: 0 auto;
+  }
+  a {
+    color: #333;
   }
 </style>
